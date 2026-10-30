@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.11" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README-Doc</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+  <style type="text/css">:root {
+--brand: #2b0a8c;
+--accent: #e6007e;
+--ink: #1f2430;
+--muted: #667085;
+--line: #e4e7ec;
+--surface: #f7f7fb;
+}
+* {
+box-sizing: border-box;
+}
+html {
+scroll-behavior: smooth;
+}
+body {
+margin: 0 auto;
+max-width: 1120px;
+padding: 50px;
+color: var(--ink);
+background: #ffffff;
+font-family: "Segoe UI", Arial, sans-serif;
+line-height: 1.65;
+}
+a {
+color: var(--brand);
+}
+a:hover {
+color: var(--accent);
+}
+h1 {
+margin-top: 2.7rem;
+padding-bottom: 0.35rem;
+border-bottom: 2px solid var(--line);
+}
+h2 {
+margin-top: 2.4rem;
+padding-bottom: 0.3rem;
+border-bottom: 1px solid var(--line);
+}
+h3,
+h4,
+h5,
+h6 {
+margin-top: 2rem;
+}
+img {
+display: block;
+max-width: 100%;
+height: auto;
+margin: 1rem auto 0.35rem;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 1.25rem 0;
+}
+th,
+td {
+border: 1px solid var(--line);
+padding: 0.7rem;
+vertical-align: top;
+}
+th {
+background: var(--surface);
+text-align: left;
+}
+blockquote {
+margin: 1.2rem 0;
+padding: 0.7rem 1rem;
+border-left: 4px solid var(--brand);
+background: var(--surface);
+}
+code {
+font-family: Consolas, "Courier New", monospace;
+}
+pre {
+overflow-x: auto;
+padding: 1rem;
+border-radius: 8px;
+background: var(--surface);
+}
+
+body > h1:first-of-type {
+margin: -50px calc(50% - 50vw) 3rem;
+padding: 3.5rem max(50px, calc((100vw - 1120px) / 2));
+border: 0;
+background: linear-gradient(135deg, #250777, #3e16a3);
+color: #ffffff;
+font-size: clamp(2rem, 5vw, 3.5rem);
+line-height: 1.1;
+}
+@media (max-width: 640px) {
+body {
+padding: 20px;
+}
+body > h1:first-of-type {
+margin-top: -20px;
+padding: 2.5rem 20px;
+}
+}
+</style>
+</head>
+<body>
+<h1 id="c">C++</h1>
+<h2 id="overview">Overview</h2>
+<p>This SBB demonstrates how to use Renesas RA Flexible Software Package
+(FSP) ADC HAL APIs from C++. The ADC peripheral is wrapped by the
+<code>adc_ep</code> class, and the reference application creates an ADC
+object and invokes its member functions to initialize and control
+scanning and read ADC data.</p>
+<p>The example reads the MCU internal temperature-sensor ADC channel and
+provides a serial-terminal interface to start a scan and, where the
+configured conversion mode supports it, stop a scan. ADC results and
+status information are displayed on the terminal.</p>
+<p>This document covers only the following boards:</p>
+<ul>
+<li>FPB-RA0L1</li>
+<li>FPB-RA2E3</li>
+<li>FPB-RA4E2</li>
+<li>FPB-RA6E2</li>
+<li>FPB-RA8E1</li>
+</ul>
+<h2 id="what-use-case-does-this-sbb-demonstrate">What Use Case Does This
+SBB Demonstrate?</h2>
+<p>The SBB demonstrates a reusable C++ wrapper around the FSP ADC HAL.
+It separates ADC control from the terminal-driven reference application
+so that the ADC control methods can be reused by another
+application.</p>
+<p>The demonstrated flow is:</p>
+<ol type="1">
+<li>Initialize the UART console used by the reference application.</li>
+<li>Accept a terminal command to start ADC scanning.</li>
+<li>Open and configure the ADC through FSP.</li>
+<li>Start conversion using the ADC driver supported by the target
+MCU.</li>
+<li>Read the MCU die-temperature ADC channel.</li>
+<li>Display the raw ADC result on the terminal.</li>
+<li>In a continuous/sequential mode, continue reading until the user
+requests a stop.</li>
+<li>In a single/one-shot mode, automatically stop reading after the
+conversion and close the ADC module.</li>
+</ol>
+<p>The SBB abstracts differences among the FSP ADC driver variants
+through macros in <code>adc_ep.h</code>. Depending on the target MCU,
+the implementation selects <code>r_adc</code>, <code>r_adc_b</code>, or
+<code>r_adc_d</code> APIs at build time.</p>
+<h2 id="supported-reference-boards">Supported Reference Boards</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Board</th>
+<th>ADC mode information used by this SBB</th>
+<th>Board-specific setup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FPB-RA0L1</td>
+<td>ADC_D. Default is Sequential mode; One-shot can be selected in RA
+Configurator.</td>
+<td>Place jumper J9 on pins 1-2 to use on-board debug
+functionality.</td>
+</tr>
+<tr>
+<td>FPB-RA2E3</td>
+<td>Uses the applicable FSP ADC driver configuration for the
+device.</td>
+<td>Close E25, E28, E46, and E47 to use J-Link OB VCOM for the serial
+terminal.</td>
+</tr>
+<tr>
+<td>FPB-RA4E2</td>
+<td>Uses the applicable FSP ADC driver configuration for the
+device.</td>
+<td>No additional hardware connection is identified in the supplied
+README beyond connecting the USB debug port.</td>
+</tr>
+<tr>
+<td>FPB-RA6E2</td>
+<td>Uses the applicable FSP ADC driver configuration for the
+device.</td>
+<td>No additional hardware connection is identified in the supplied
+README beyond connecting the USB debug port.</td>
+</tr>
+<tr>
+<td>FPB-RA8E1</td>
+<td>Uses the applicable FSP ADC driver configuration for the
+device.</td>
+<td>No additional hardware connection is identified in the supplied
+README beyond connecting the USB debug port.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The supplied README states that the default example configuration is
+Continuous Scan for boards generally, while FPB-RA0L1 defaults to ADC_D
+Sequential mode.</p>
+</blockquote>
+<h2 id="sbb-architecture">SBB Architecture</h2>
+<p>The source is divided into two logical layers.</p>
+<h3 id="reusable-sbb-core">Reusable SBB core</h3>
+<p><code>adc_ep.h</code> and <code>adc_ep.cpp</code> contain the ADC C++
+wrapper and the ADC control logic. This layer calls the configured FSP
+ADC instance and hides driver-family differences behind common
+macros.</p>
+<p>The class provides operations to:</p>
+<ul>
+<li>initialize the ADC module;</li>
+<li>start an ADC scan;</li>
+<li>read the configured internal temperature channel;</li>
+<li>stop a supported ongoing scan; and</li>
+<li>close the ADC module.</li>
+</ul>
+<h3 id="demoreference-application">Demo/reference application</h3>
+<p><code>adc_example_app.h</code> and <code>adc_example_app.cpp</code>
+implement the terminal-driven demonstration. This code is an example of
+how to consume the reusable ADC class and is not required when
+integrating the ADC wrapper into a different application.</p>
+<p>The example application:</p>
+<ul>
+<li>initializes <code>uart_console</code>;</li>
+<li>prints the SBB banner, FSP version, description, and menu;</li>
+<li>accepts terminal commands;</li>
+<li>calls the <code>adc_ep</code> public methods;</li>
+<li>prints ADC readings and errors; and</li>
+<li>waits one second between displayed readings while reads remain
+enabled.</li>
+</ul>
+<p><code>hal_entry.cpp</code> is expected to call the single
+reference-application entry point
+<code>adc_example_app_run()</code>.</p>
+<h2 id="core-code-behavior">Core Code Behavior</h2>
+<h3 id="starting-a-scan">Starting a scan</h3>
+<p><code>adc_ep::adc_scan_start()</code> performs the core start
+sequence:</p>
+<ol type="1">
+<li>Opens the ADC module through <code>init_adc_module()</code>.</li>
+<li>Applies the configured channel/scan configuration.</li>
+<li>Performs ADC calibration when the selected ADC implementation
+requires the calibration path compiled by this source.</li>
+<li>Starts the ADC scan.</li>
+<li>For ADC_D in One-shot mode, waits for completion and performs a
+second scan because the source states that the initial
+internal-temperature conversion result cannot be used.</li>
+<li>Sets <code>g_ready_to_read</code> so the application can read ADC
+data.</li>
+</ol>
+<h3 id="reading-adc-data">Reading ADC data</h3>
+<p><code>adc_ep::adc_read_data()</code> reads
+<code>ADC_CHANNEL_TEMPERATURE</code> and copies the raw result to the
+caller-provided <code>uint16_t</code> buffer.</p>
+<p>In Single Scan or ADC_D One-shot mode, the function clears
+<code>g_ready_to_read</code> and closes the ADC after the read. In a
+continuous/sequential configuration, the reference application can
+continue reading while the flag remains set.</p>
+<h3 id="stopping-a-scan">Stopping a scan</h3>
+<p><code>adc_ep::adc_scan_stop()</code> stops the active scan, clears
+<code>g_ready_to_read</code>, and closes the ADC module. The reference
+application’s Stop command is intended for the continuous/sequential
+mode, not the single/one-shot mode.</p>
+<h2 id="public-functions-to-look-at-first">Public Functions to Look at
+First</h2>
+<h3 id="reusable-sbb-api">Reusable SBB API</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">fsp_err_t</span> adc_ep<span class="op">::</span>init_adc_module<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">fsp_err_t</span> adc_ep<span class="op">::</span>adc_scan_start<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">fsp_err_t</span> adc_ep<span class="op">::</span>adc_read_data<span class="op">(</span><span class="dt">uint16_t</span> <span class="op">*</span> p_data<span class="op">);</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">fsp_err_t</span> adc_ep<span class="op">::</span>adc_scan_stop<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">static</span> <span class="dt">void</span> adc_ep<span class="op">::</span>deinit_adc_module<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<p>For normal integration, start with:</p>
+<ol type="1">
+<li><code>adc_scan_start()</code> to configure and begin
+conversion.</li>
+<li><code>adc_read_data()</code> to retrieve the ADC result.</li>
+<li><code>adc_scan_stop()</code> when using a mode that continues
+scanning.</li>
+<li><code>deinit_adc_module()</code> when explicit cleanup is
+needed.</li>
+</ol>
+<p><code>init_adc_module()</code> is public, but
+<code>adc_scan_start()</code> already calls it as part of the
+demonstrated sequence.</p>
+<h3 id="reference-application-api">Reference-application API</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> adc_example_app_run<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<p>Use this entry point only when running the supplied terminal
+demonstration.</p>
+<h2 id="reference-board-configuration-assumptions">Reference Board
+Configuration Assumptions</h2>
+<h3 id="adc-configuration">ADC configuration</h3>
+<p>The SBB expects FSP-generated ADC configuration objects declared
+through <code>hal_data.h</code>, including the ADC control/configuration
+objects and the appropriate scan/channel configuration for the target
+ADC implementation.</p>
+<p>The source selects among these FSP ADC modules according to BSP
+peripheral definitions:</p>
+<ul>
+<li><code>r_adc_d</code> when <code>BSP_PERIPHERAL_ADC_D_PRESENT</code>
+is enabled;</li>
+<li><code>r_adc_b</code> when <code>BSP_PERIPHERAL_ADC_B_PRESENT</code>
+is enabled;</li>
+<li>otherwise <code>r_adc</code>.</li>
+</ul>
+<p>For FPB-RA0L1, the supplied README states that ADC_D defaults to
+Sequential mode. To use One-shot mode, change <strong>Conversion
+operation</strong> for the ADC_D driver in RA Configurator.</p>
+<p>For the other boards covered by this document, the supplied README
+states the project default generally as Continuous Scan and instructs
+users to select <strong>Mode = Single Scan</strong> in RA Configurator
+to switch modes, subject to the ADC driver available on the target.</p>
+<h3 id="adc-channel">ADC channel</h3>
+<p>The reusable source explicitly reads:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ADC_CHANNEL_TEMPERATURE</span></code></pre></div>
+<p>Therefore, the reference configuration is built around the MCU
+internal temperature-sensor ADC input, not an external analog-input
+pin.</p>
+<h3 id="uart-console">UART console</h3>
+<p>The demo/reference application depends on
+<code>console/uart_console.h</code>, <code>printf()</code>,
+<code>getchar()</code>, and the user stdio routing used by the
+project.</p>
+<p>The supplied README specifies these serial-terminal settings:</p>
+<ul>
+<li>Speed: 115200 baud</li>
+<li>Data: 8 bits</li>
+<li>Parity: none</li>
+<li>Stop bits: 1</li>
+<li>Flow control: none</li>
+<li>Terminal receive newline: CR</li>
+<li>Terminal transmit newline: CR</li>
+<li>Local echo: enabled</li>
+</ul>
+<p>For FPB-RA2E3, close E25, E28, E46, and E47 to route the serial
+terminal through J-Link OB VCOM.</p>
+<p>For FPB-RA0L1, place J9 on pins 1-2 to use on-board debugging.</p>
+<h2 id="what-must-be-changed-for-a-custom-board">What Must Be Changed
+for a Custom Board?</h2>
+<p>The supplied source and README establish the reference configuration
+but do not define a complete custom-board porting procedure. When moving
+the SBB to another board, review the following integration points
+against the new FSP configuration and hardware design.</p>
+<h3 id="board-and-adc-instance-configuration">Board and ADC instance
+configuration</h3>
+<p>Review the ADC instance generated by RA Configurator and ensure that
+the project exposes the objects used by the SBB, including
+<code>g_adc_ctrl</code>, <code>g_adc_cfg</code>, and the appropriate
+channel/scan configuration object.</p>
+<p>If the target MCU uses a different ADC peripheral variant, verify
+that the BSP peripheral definitions select the intended
+<code>r_adc</code>, <code>r_adc_b</code>, or <code>r_adc_d</code>
+path.</p>
+<h3 id="adc-channel-1">ADC channel</h3>
+<p>The current SBB reads the internal temperature channel. If the
+application requires another analog source, update the ADC channel
+configuration and the channel supplied to <code>ADC_READ()</code>.</p>
+<p>For an external ADC input, configure the corresponding analog-capable
+pin in RA Configurator according to the target device and board
+schematic.</p>
+<h3 id="scan-mode">Scan mode</h3>
+<p>Select the required scan/conversion mode in RA Configurator.
+Application control flow must match that mode because single/one-shot
+operation automatically ends the demonstrated read sequence, while
+continuous/sequential operation remains active until stopped.</p>
+<h3 id="clocks-and-timing">Clocks and timing</h3>
+<p>The source does not provide board-independent clock values. Preserve
+a valid FSP clock configuration for the selected ADC peripheral and
+review conversion/calibration timing whenever the clock configuration
+changes.</p>
+<p>The demo application also intentionally inserts a one-second software
+delay between displayed ADC readings:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>R_BSP_SoftwareDelay<span class="op">(</span>ADC_READ_DELAY<span class="op">,</span> BSP_DELAY_UNITS_SECONDS<span class="op">);</span></span></code></pre></div>
+<p>Change this demo delay if the application requires another reporting
+cadence. It is not an ADC conversion-rate specification.</p>
+<h3 id="memory">Memory</h3>
+<p>The supplied files do not define special heap, stack, or buffer-size
+requirements. The reusable class stores a small ADC result value and
+uses the FSP-generated ADC control/configuration objects. Re-evaluate
+memory configuration if the SBB is moved into an RTOS task or combined
+with additional middleware.</p>
+<h3 id="task-priorities-and-rtos-integration">Task priorities and RTOS
+integration</h3>
+<p>The supplied reference application is a polling
+<code>while (true)</code> loop and does not define RTOS task priorities.
+If the SBB is integrated into an RTOS application, task creation,
+priorities, synchronization, and blocking behavior must be provided by
+that application. These parameters are not specified by the supplied
+SBB.</p>
+<h3 id="middleware-and-console-setup">Middleware and console setup</h3>
+<p>The ADC core does not require the terminal UI. If the target
+application does not need the demonstration console, replace or remove
+<code>adc_example_app.*</code>, <code>uart_console</code>,
+<code>printf()</code>, and <code>getchar()</code> integration while
+retaining the reusable <code>adc_ep</code> layer.</p>
+<h2 id="dependencies">Dependencies</h2>
+<h3 id="fsp-and-bsp">FSP and BSP</h3>
+<p>The SBB depends on Renesas RA FSP and the generated project
+configuration exposed through <code>hal_data.h</code>.</p>
+<p>The code directly uses or maps to the following APIs, depending on
+the selected ADC peripheral:</p>
+<ul>
+<li><code>R_ADC_Open</code>, <code>R_ADC_ScanCfg</code>,
+<code>R_ADC_ScanStart</code>, <code>R_ADC_ScanStop</code>,
+<code>R_ADC_Read</code>, <code>R_ADC_Close</code>,
+<code>R_ADC_StatusGet</code>, and <code>R_ADC_Calibrate</code> when
+applicable;</li>
+<li>equivalent <code>R_ADC_B_*</code> APIs for ADC_B; and</li>
+<li>equivalent <code>R_ADC_D_*</code> APIs for ADC_D.</li>
+</ul>
+<p>It also uses:</p>
+<ul>
+<li><code>R_FSP_VersionGet()</code> in the demo application;</li>
+<li><code>R_BSP_SoftwareDelay()</code> for the demo’s one-second display
+interval; and</li>
+<li>BSP peripheral-presence macros to select the ADC
+implementation.</li>
+</ul>
+<h3 id="servicesmiddleware">Services/middleware</h3>
+<p>The demo/reference application depends on the project UART-console
+service:</p>
+<pre class="text"><code>console/uart_console.h</code></pre>
+<p>It uses <code>uart_console_init()</code>,
+<code>uart_console_has_char()</code>, and
+<code>uart_console_flush()</code> plus standard C I/O calls routed by
+the project’s stdio implementation.</p>
+<h3 id="hardware-resources">Hardware resources</h3>
+<p>The demonstrated configuration requires:</p>
+<ul>
+<li>one supported RA MCU/board;</li>
+<li>the MCU ADC and internal temperature sensor channel;</li>
+<li>a USB debug/programming connection; and</li>
+<li>a UART/VCOM path when running the terminal demo.</li>
+</ul>
+<h2 id="demonstrated-behavior-and-performance">Demonstrated Behavior and
+Performance</h2>
+<p>The supplied project demonstrates these behaviors:</p>
+<ul>
+<li>C++ encapsulation of ADC HAL access;</li>
+<li>selection of ADC driver family at build time;</li>
+<li>start and stop terminal commands;</li>
+<li>raw MCU die-temperature ADC readings displayed on a serial
+terminal;</li>
+<li>single/one-shot and continuous/sequential control-flow handling;
+and</li>
+<li>ADC calibration where the compiled target-specific path requires
+it.</li>
+</ul>
+<p>The reference application waits one second between displayed
+readings. This is an application delay and should not be interpreted as
+ADC throughput.</p>
+<p>The source comments state that the calibration path can take
+<strong>24 ms to 780 ms based on clock</strong>. No additional measured
+throughput, CPU utilization, memory footprint, ADC accuracy, temperature
+accuracy, interrupt latency, or power benchmark is provided in the
+supplied files. Those values should therefore not be treated as
+characterized SBB performance.</p>
+<h2 id="file-ownership-and-modification-guidance">File Ownership and
+Modification Guidance</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>File/category</th>
+<th>Role</th>
+<th>Modification guidance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>adc_ep.h</code></td>
+<td>Reusable ADC C++ interface, driver-selection macros, common
+definitions</td>
+<td>Modify when adapting or extending the reusable SBB API or supported
+ADC behavior.</td>
+</tr>
+<tr>
+<td><code>adc_ep.cpp</code></td>
+<td>Reusable ADC implementation</td>
+<td>Modify when changing core ADC behavior. Keep local changes isolated
+where practical to simplify later upgrades.</td>
+</tr>
+<tr>
+<td><code>adc_example_app.h</code></td>
+<td>Demo/reference application interface and terminal strings</td>
+<td>Demo-oriented. Modify or replace for the product application’s user
+interface.</td>
+</tr>
+<tr>
+<td><code>adc_example_app.cpp</code></td>
+<td>Demo/reference application control loop, UART interaction, printing,
+and menu</td>
+<td>Demo-oriented. Safe to replace when integrating the reusable core
+into a product application.</td>
+</tr>
+<tr>
+<td><code>hal_data.h</code> and FSP-generated configuration</td>
+<td>FSP-generated project interface/configuration used by the SBB</td>
+<td>Treat as generated/preset content. Make peripheral configuration
+changes through RA Configurator rather than hand-maintaining generated
+output.</td>
+</tr>
+<tr>
+<td><code>readme.txt</code></td>
+<td>Source documentation used to describe the supplied example</td>
+<td>Documentation/reference content. This Markdown document consolidates
+the relevant information for the five boards in scope.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="adopting-a-newer-sbb-release-after-local-modifications">Adopting
+a Newer SBB Release After Local Modifications</h2>
+<p>The supplied files do not define a formal upgrade or merge policy. To
+minimize integration effort, keep application-specific changes outside
+the reusable SBB core whenever possible.</p>
+<p>A practical source-ownership boundary is:</p>
+<ul>
+<li>keep <code>adc_ep.h</code> and <code>adc_ep.cpp</code> close to the
+released SBB unless core behavior must change;</li>
+<li>put product-specific workflows, presentation, command handling, RTOS
+integration, and policy in the application layer rather than
+<code>adc_ep</code>;</li>
+<li>keep board/peripheral selections in the FSP/RA Configurator
+configuration rather than hard-coding generated settings into the SBB;
+and</li>
+<li>preserve local SBB changes as small, reviewable commits so they can
+be compared with a newer release.</li>
+</ul>
+<p>When adopting a newer SBB release, compare the newer reusable
+<code>adc_ep</code> files with the locally modified versions, reapply
+only the still-needed local changes, regenerate or reconcile the FSP
+configuration for the target board, and rerun the application’s ADC
+start/read/stop behavior on hardware.</p>
+<h2 id="reference-application-operation">Reference Application
+Operation</h2>
+<ol type="1">
+<li>Connect the target board’s USB debug port to the host PC.</li>
+<li>Apply the board-specific jumper or VCOM settings listed above.</li>
+<li>Build and program the project using its configured Renesas RA/FSP
+development environment.</li>
+<li>Open the serial terminal using 115200, 8 data bits, no parity, 1
+stop bit, and no flow control.</li>
+<li>Run the application.</li>
+<li>Use the terminal menu:
+<ul>
+<li>Press <code>1</code> to start ADC scanning.</li>
+<li>Press <code>2</code> to stop scanning when using the
+continuous/sequential mode supported by the configured target.</li>
+<li>Use another key to display the menu again.</li>
+</ul></li>
+</ol>
+<h2 id="integration-summary">Integration Summary</h2>
+<p>For a product integration, the primary reusable portion is the
+<code>adc_ep</code> class. The <code>adc_example_app</code> layer
+demonstrates how to call it but couples the example to a polling
+terminal interface. Configure the required ADC instance and scan mode in
+FSP, retain the internal-temperature channel only if that is the desired
+signal, and replace the demo console/control loop with the product
+application’s own control path.</p>
+</body>
+</html>
