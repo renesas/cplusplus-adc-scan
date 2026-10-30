@@ -1,0 +1,4 @@
+[submodule "html-style"]
+	path = html-style
+	url = https://gitlab.global.renesas.com/mcusys/html-style.git
+	branch = main
